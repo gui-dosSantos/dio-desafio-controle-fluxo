@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Contador {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-
         try {
             System.out.println("Digite o primeiro parâmetro: ");
             int parametroUm = scanner.nextInt();
@@ -14,6 +13,8 @@ public class Contador {
             contar(parametroUm, parametroDois);
 
         }  catch (InputMismatchException | ParametrosInvalidosException e) {
+            /* Usando um único bloco de try/catch para lidar tanto com a exceção customizada ParametrosInvalidosException
+            quanto com a InputMismatchException para o caso de um valor não númerico ser inserido */
             if(e instanceof InputMismatchException){
                 System.out.println("Os parâmetros inseridos devem ser números inteiros");
             } else {
